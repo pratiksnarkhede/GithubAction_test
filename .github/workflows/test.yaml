@@ -16,7 +16,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image:  pratik0078/demo_image
-          tags: v1, latest
+          tags: v2, latest
           registry: docker.io
         #   dockerfile: Dockerfile.ci
           username: ${{ secret.DOCKER_USERNAME }}
