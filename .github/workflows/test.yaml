@@ -16,7 +16,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v6
         with:
           image: pratik0078/demo_image
-          tags: v2, latest
+          # tags: v2, latest
           registry: docker.io
           # Uncomment the line below and provide the correct path if your Dockerfile is not in the root
           # dockerfile: Dockerfile.ci
