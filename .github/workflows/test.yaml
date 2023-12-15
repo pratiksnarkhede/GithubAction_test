@@ -17,7 +17,7 @@ jobs:
         with:
           image:  pratik0078/demo_image
           tags: v1, latest
-          registry: registry-url.io
+          registry: docker.io
           dockerfile: Dockerfile.ci
           username: pratik0078
           password: 3$6Mo$#LMcrCYBh!
