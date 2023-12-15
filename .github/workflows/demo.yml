@@ -11,6 +11,6 @@ jobs:
       
     steps:
       - name: list the current directory 
-        run: pwd
+        run: ls -a
 
   
