@@ -19,5 +19,6 @@ jobs:
           tags: v1, latest
           registry: docker.io
         #   dockerfile: Dockerfile.ci
-          username: 
-          password: 
+          username: ${{ secret.DOCKER_USERNAME }}
+          password: ${{ secret.DOCKER_PASSWORD }}
+
