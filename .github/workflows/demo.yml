@@ -1,0 +1,16 @@
+name: Shell Commands
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: list the current directory 
+        run: pwd
+
+  
