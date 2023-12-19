@@ -27,6 +27,6 @@ jobs:
       - name: Deploy to ec2 instance
         run: sudo docker pull pratik0078/cicd-pipeline:latest
       - name: Delete Old docker container
-        run: sudo docker rm -f cicd-pipeline || true
+        run: sudo docker rm -f cicd-pipeline-container|| true
       - name: Run Docker Container
         run: sudo docker run -d -p 8080:8080 --name cicd-pipeline-container pratik0078/cicd-pipeline
