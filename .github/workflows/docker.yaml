@@ -6,7 +6,7 @@ on:
     - main
 
 jobs:
-  build-test-deploy:
+  build_job:
     runs-on: self-hosted
     steps:
       - name: Checkout code
@@ -23,7 +23,10 @@ jobs:
           push: true
           tags: pratik0078/cicd-pipeline:latest
           file: Dockerfile  
-
+  Deploy_job:
+      runs-on: self-hosted
+      needs: build_job
+      steps:
       - name: Deploy to ec2 instance
         run: sudo docker pull pratik0078/cicd-pipeline:latest
       - name: Delete Old docker container
