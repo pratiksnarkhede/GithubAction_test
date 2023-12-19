@@ -21,12 +21,12 @@ jobs:
               uses: docker/build-push-action@v2
               with:
                     push: true
-                    tags: pratik0078/webapp:${{ github.sha }}
+                    tags: pratik0078/cicd-pipeline:${{ github.sha }}
                     file: Dockerfile  
 
             - name: Deploy to ec2 instance
-              run: sudo docker pull pratik0078/webapp:latest
+              run: sudo docker pull pratik0078/cicd-pipeline:latest
             - name: Delete Old docker container
-              run: sudo docker rm -f webapp || true
+              run: sudo docker rm -f cicd-pipeline || true
             - name: Run Docker Container
-              run: sudo docker run -d -p 8080:8080 --name webapp-container pratik0078/webapp
+              run: sudo docker run -d -p 8080:8080 --name cicd-pipeline-container pratik0078/cicd-pipeline
