@@ -25,16 +25,8 @@ jobs:
                     file: Dockerfile  
 
             - name: Deploy to ec2 instance
-              uses: appleboy/ssh-action@master
-              with:
-                host: ${{ secrets.HOST }}
-                username: ${{ secrets.USERNAME }}
-                key: ${{ secrets.PRIVATE_KEY }}
-                port: ${{ secrets.PORT }}
-                script: |
-                    docker stop webapp || true
-                    docker rm webapp || true
-                    docker rmi pratik0078/webapp:${{ github.sha }} || true
-                    docker pull pratik0078/webapp:${{ github.sha }}
-                    docker run -d --name webapp -p 80:80 pratik0078/webapp:${{ github.sha }}
-                    
+              run: sudo docker pull varsubham/cicd-pipeline:latest
+            - name: Delete Old docker container
+              run: sudo docker rm -f cicd-pipeline-container || true
+            - name: Run Docker Container
+              run: sudo docker run -d -p 8080:8080 --name cicd-pipeline-container varsubham/cicd-pipeline
