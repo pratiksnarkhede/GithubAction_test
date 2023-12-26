@@ -33,3 +33,11 @@ jobs:
         run: sudo docker rm -f cicd-pipeline-container|| true
       - name: Run Docker Container
         run: sudo docker run -d -p 8080:80 --name cicd-pipeline-container pratik0078/cicd-pipeline
+      - name: Report Status
+        if: always()
+        uses: ravsamhq/notify-slack-action@master
+        with:
+            status: ${{ job.status }}
+            notify_when: 'failure'
+        env:
+            SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
